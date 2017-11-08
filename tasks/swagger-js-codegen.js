@@ -80,6 +80,8 @@ module.exports = function (grunt) {
 
         if (api.type === 'angular' || api.angularjs === true) {
             source = CodeGen.getAngularCode({ moduleName: api.moduleName, className: api.className, swagger: swagger });
+        } if (api.type === 'react') {
+            source= CodeGen.getReactCode({ moduleName: api.moduleName, className: api.className, swagger: swagger  });
         } else if (api.custom === true) {
             source = CodeGen.getCustomCode({ className: api.className, swagger: swagger, mustache: api.mustache,
                 template: {
